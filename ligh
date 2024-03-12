@@ -1,36 +1,36 @@
-// Include the necessary libraries
+
 #include <Arduino.h>
 
-// Define the pin for the LDR
+
 const int ldrPin = A0;
 
 void setup() {
-  pinMode(ldrPin, INPUT);   // Set LDR pin as input
+  pinMode(ldrPin, INPUT);   
   pinMode(relayPin, OUTPUT);
-  // Start the serial communication
+  
   Serial.begin(9600);
 }
 
 void loop() {
-  // Read the analog value from the LDR
+ 
   int ldrValue = analogRead(ldrPin);
 
-  // Print the LDR value to the Serial Monitor
+  
   Serial.print("LDR Value: ");
   Serial.println(ldrValue);
 
-  // Add a delay to avoid overwhelming the Serial Monitor
+  
   delay(1000);
 }
 
 
 void loop() {
-  ldrValue = analogRead(ldrPin);  // Read LDR sensor value
+  ldrValue = analogRead(ldrPin);  
 
-  if (ldrValue < 500) {   // If it's dark
-    digitalWrite(relayPin, HIGH);  // Turn on the relay
-  } else {                // If it's light
-    digitalWrite(relayPin, LOW);   // Turn off the relay
+  if (ldrValue < 500) {   
+    digitalWrite(relayPin, HIGH); 
+  } else {               
+    digitalWrite(relayPin, LOW);   
   }
 }
 
